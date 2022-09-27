@@ -1,11 +1,18 @@
+import unittest
 import sys
-
-sys.path.append("../../")
 from main import config
 
-fb = "https://fb.com"
-base = config.BaseConfig
+sys.path.append("../../")
 
 
-def test_login():
-    assert base.login(fb), "FAiled blah blah, blah"
+class test_fb(unittest.TestCase):
+    fb = "https://www.facebook.com"
+    username = "pavan.ramisetty123@gmail.com"
+    password = "Dream@143"
+
+    def test_login(self):
+        assert config.login(self.fb, self.username, self.password)
+
+
+if __name__ == "__main__":
+    unittest.main()
